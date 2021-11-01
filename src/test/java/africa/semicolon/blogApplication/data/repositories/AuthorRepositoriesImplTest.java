@@ -64,7 +64,7 @@ public class AuthorRepositoriesImplTest {
             author.setAuthorId("3210");
             authorRepository.save(author);
             assertNotNull(authorRepository.findByAuthorId("3210"));
-            authorRepository.delete(authorRepository.findByAuthorId("3210"));
+            authorRepository.delete("3210");
             assertNull(authorRepository.findByAuthorId("3210"));
         }
 
