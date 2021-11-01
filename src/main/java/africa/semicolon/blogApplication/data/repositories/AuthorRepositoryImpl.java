@@ -30,7 +30,8 @@ public class AuthorRepositoryImpl implements AuthorRepository{
 
     @Override
     public void delete(String id) {
-
+        Author author = findByAuthorId(id);
+        authors.remove(author);
     }
 
     @Override
