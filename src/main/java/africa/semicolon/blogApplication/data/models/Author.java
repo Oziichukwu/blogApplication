@@ -1,2 +1,18 @@
-package africa.semicolon.blogApplication.data.models;public class Author {
+package africa.semicolon.blogApplication.data.models;
+
+import lombok.Data;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Data
+public class Author {
+
+    private String AuthorId;
+    private String firstName;
+    private String lastName;
+    private String userName;
+    private String email;
+    private String phoneNumber;
+    private List<Post>posts = new ArrayList<>();
 }
