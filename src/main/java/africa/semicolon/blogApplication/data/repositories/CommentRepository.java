@@ -1,5 +1,5 @@
 package africa.semicolon.blogApplication.data.repositories;
 
-public class AuthorRepository {
+public class CommentRepository {
 
 }
