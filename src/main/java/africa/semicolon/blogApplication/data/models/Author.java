@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-public class Author {
+public class  Author {
 
-    private String AuthorId;
+    private String authorId;
     private String firstName;
     private String lastName;
     private String userName;
