@@ -40,8 +40,8 @@ public class PostServiceImpl implements  PostService{
     }
 
     @Override
-    public Post findPostById(Long id) throws PostDoesNotExistException {
-        return null;
+    public Post findPostById(String id){
+        return postRepository.findByPostId(id);
     }
 
     @Override

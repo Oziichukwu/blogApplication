@@ -12,7 +12,7 @@ public interface PostService {
    PostResponseDto createPost(PostRequestDto postRequestDto);
    List<Post>findAByPost(PostRequestDto postRequestDto);
    PostResponseDto updatePost(PostRequestDto postRequestDto);
-   Post findPostById(Long id) throws PostDoesNotExistException;
+   Post findPostById(String id);
    void deletePostById(long id);
 
 }
