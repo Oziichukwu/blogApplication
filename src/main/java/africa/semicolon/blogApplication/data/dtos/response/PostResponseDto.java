@@ -14,7 +14,9 @@ public class PostResponseDto {
 
     private String authorId;
 
-    private LocalDateTime datePostWasCreated;
+    private String postId;
+
+    private String datePostWasCreated;
 
 
 }
