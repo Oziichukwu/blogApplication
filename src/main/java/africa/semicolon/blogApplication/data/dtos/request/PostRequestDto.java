@@ -8,6 +8,8 @@ import java.time.LocalDateTime;
 @Data
 public class PostRequestDto {
 
+    private String postId;
+
     private String title;
 
     private String content;
@@ -16,5 +18,5 @@ public class PostRequestDto {
 
     private Author author;
 
-    private LocalDateTime datePostWasCreated;
+    private String datePostWasCreated;
 }
