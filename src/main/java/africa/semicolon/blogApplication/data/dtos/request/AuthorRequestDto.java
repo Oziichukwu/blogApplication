@@ -11,5 +11,5 @@ public class AuthorRequestDto {
     private String email;
     private String phoneNumber;
     private String profession;
-
+    private String authorId;
 }
