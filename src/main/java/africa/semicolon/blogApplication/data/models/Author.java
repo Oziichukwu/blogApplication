@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 public class  Author {
-
+    private String profession;
     private String authorId;
     private String firstName;
     private String lastName;
