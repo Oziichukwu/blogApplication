@@ -1,2 +1,14 @@
-package africa.semicolon.blogApplication.services;public interface CommentService {
+package africa.semicolon.blogApplication.services;
+
+import africa.semicolon.blogApplication.data.dtos.request.CommentRequestDto;
+import africa.semicolon.blogApplication.data.dtos.response.CommentResponseDto;
+import africa.semicolon.blogApplication.data.models.Comment;
+
+public interface CommentService {
+
+    CommentResponseDto addComment(CommentRequestDto commentRequestDto);
+    Comment findCommentById(String id);
+    void deleteComment(Comment comment);
+    void deleteCommentById(String id);
+
 }
