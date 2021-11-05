@@ -16,16 +16,14 @@ import java.util.List;
 public class PostServiceImpl implements  PostService{
 
     private final PostRepository postRepository = new PostRepositoryImpl();
-
+    private  static AuthorService authorService = new AuthorServiceImpl();
     @Override
     public PostResponseDto createPost(PostRequestDto postRequestDto) {
-
         Post post = PostModelMapper.map(postRequestDto);
 
         Post savedPost = postRepository.save(post);
 
         PostResponseDto responseDto = PostModelMapper.map(savedPost);
-
         return responseDto;
     }
 
@@ -36,6 +34,7 @@ public class PostServiceImpl implements  PostService{
 
     @Override
     public PostResponseDto updatePost(PostRequestDto postRequestDto) {
+
         return null;
     }
 
