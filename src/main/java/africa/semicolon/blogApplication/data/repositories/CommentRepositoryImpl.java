@@ -11,7 +11,7 @@ public class CommentRepositoryImpl implements CommentRepository{
     @Override
     public Comment save(Comment comment) {
         comments.add(comment);
-        return findByUniqueId(comment.getCommentUniqueId());
+        return findByUniqueId(comment.getCommentId());
     }
 
     @Override
@@ -19,7 +19,7 @@ public class CommentRepositoryImpl implements CommentRepository{
 
         for ( Comment comment : comments){
 
-            if (comment.getCommentUniqueId().equalsIgnoreCase(id)){
+            if (comment.getCommentId().equalsIgnoreCase(id)){
                 return comment;
             }
         }

@@ -17,9 +17,7 @@ public class PostRepositoryImpl implements PostRepository{
 
     @Override
     public Post findByPostId(String id) {
-
         for (Post post : posts){
-
             if(post.getPostId().equalsIgnoreCase(id)){
                 return post;
             }
