@@ -9,11 +9,12 @@ public class PostModelMapper {
     public static Post map (PostRequestDto postRequestDto){
         Post post = new Post();
 
-        //post.setAuthor(postRequestDto.getAuthor());
-        post.setPostId(postRequestDto.getAuthorId());
+        post.setAuthor(postRequestDto.getAuthor());
+
+        post.setPostId(postRequestDto.getPostId());
         post.setTitle(postRequestDto.getTitle());
         post.setContent(postRequestDto.getContent());
-        post.setTimePublished(postRequestDto.getDatePostWasCreated());
+        post.setLocalDateTime(postRequestDto.getDatePostWasCreated());
 
         return post;
     }
@@ -21,8 +22,9 @@ public class PostModelMapper {
     public static PostResponseDto map(Post savedPost){
 
         PostResponseDto responseDto = new PostResponseDto();
-        //responseDto.setAuthorId(savedPost.getPostId());
-        responseDto.setDatePostWasCreated(savedPost.getTimePublished());
+        responseDto.setAuthorId(savedPost.getPostId());
+        responseDto.setPostId(savedPost.getPostId());
+        responseDto.setDatePostWasCreated(savedPost.getLocalDateTime());
         responseDto.setTitle(savedPost.getTitle());
         responseDto.setContent(savedPost.getContent());
         return responseDto;

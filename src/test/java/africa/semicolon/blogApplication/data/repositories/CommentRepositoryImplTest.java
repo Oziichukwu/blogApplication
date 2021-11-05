@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -42,11 +43,11 @@ class CommentRepositoryImplTest {
 
 
         Comment comment = new Comment();
-        comment.setCommentUniqueId("#1123");
+        comment.setCommentId("#1123");
         comment.setCommentorName("Precious Chidiebere");
         comment.setContent("Its high time africa begin to harness this great potential");
-        LocalDate localDate = LocalDate.now();
-        comment.setDateCreated(localDate);
+        LocalDateTime localDate = LocalDateTime.now();
+       // comment.setDateCreated(localDate);
 
         Comment savedComment = commentRepository.save(comment);
         assertEquals(comment, savedComment);
@@ -72,11 +73,11 @@ class CommentRepositoryImplTest {
 
 
         Comment comment = new Comment();
-        comment.setCommentUniqueId("#1123");
+        comment.setCommentId("#1123");
         comment.setCommentorName("Precious Chidiebere");
         comment.setContent("Its high time africa begin to harness this great potential");
-        LocalDate localDate = LocalDate.now();
-        comment.setDateCreated(localDate);
+        LocalDateTime localDate = LocalDateTime.now();
+        //comment.setDateCreated(localDate);
 
         Comment savedComment = commentRepository.save(comment);
         Comment foundComment = commentRepository.findByUniqueId("#1123");
@@ -104,11 +105,11 @@ class CommentRepositoryImplTest {
 
 
         Comment comment = new Comment();
-        comment.setCommentUniqueId("#1123");
+        comment.setCommentId("#1123");
         comment.setCommentorName("Precious Chidiebere");
         comment.setContent("Its high time africa begin to harness this great potential");
-        LocalDate localDate = LocalDate.now();
-        comment.setDateCreated(localDate);
+        LocalDateTime localDate = LocalDateTime.now();
+       // comment.setDateCreated(localDate);
 
         commentRepository.save(comment);
         assertNotNull(commentRepository.findByUniqueId("#1123"));
@@ -136,11 +137,11 @@ class CommentRepositoryImplTest {
 
 
         Comment comment = new Comment();
-        comment.setCommentUniqueId("#1123");
+        comment.setCommentId("#1123");
         comment.setCommentorName("Precious Chidiebere");
         comment.setContent("Its high time africa begin to harness this great potential");
-        LocalDate localDate = LocalDate.now();
-        comment.setDateCreated(localDate);
+        LocalDateTime localDate = LocalDateTime.now();
+       // comment.setDateCreated(localDate);
 
         commentRepository.save(comment);
         assertNotNull(commentRepository.findByUniqueId("#1123"));
@@ -167,11 +168,11 @@ class CommentRepositoryImplTest {
 
 
         Comment comment = new Comment();
-        comment.setCommentUniqueId("#1123");
+        comment.setCommentId("#1123");
         comment.setCommentorName("Precious Chidiebere");
         comment.setContent("Its high time africa begin to harness this great potential");
-        LocalDate localDate = LocalDate.now();
-        comment.setDateCreated(localDate);
+        //LocalDateTime localDate = LocalDateTime.now();
+        //comment.setDateCreated(localDate);
 
         commentRepository.save(comment);
         commentRepository.save(comment);
