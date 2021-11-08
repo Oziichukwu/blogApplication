@@ -21,4 +21,14 @@ public class PostController {
     public Post findPostById(@PathVariable("id") String id){
         return postService.findPostById(id);
     }
+
+    @DeleteMapping("/post/{postId}")
+    public Post deletePostById(@PathVariable String postId){
+        return postService.findPostById(postId);
+    }
+
+    @PatchMapping("/post/{postId}")
+    public Post updatePost(@RequestBody PostRequestDto updatedPost, @PathVariable String postId){
+        return postService.updatePost(postId, updatedPost);
+    }
 }
