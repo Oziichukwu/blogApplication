@@ -9,7 +9,7 @@ public interface CommentService {
     CommentResponseDto addComment(CommentRequestDto commentRequestDto);
     Comment updateComment(String commentId, CommentRequestDto commentRequestDto);
     Comment findCommentById(String id);
-    void deleteComment(Comment comment);
-    void deleteCommentById(String id);
+    Comment deleteComment(Comment comment);
+    Comment deleteCommentById(String id);
 
 }
