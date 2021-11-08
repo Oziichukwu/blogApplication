@@ -23,6 +23,19 @@ public class CommentServiceImpl implements CommentService{
     }
 
     @Override
+    public Comment updateComment(String commentId, CommentRequestDto commentRequestDto) {
+        Comment commentToBeUpdated = findCommentById(commentId);
+
+        if (!commentToBeUpdated.getCommentorName().equals(commentRequestDto.getCommentorName())){
+            commentToBeUpdated.setCommentorName(commentRequestDto.getCommentorName());
+        }
+        if (!commentToBeUpdated.getContent().equals(commentRequestDto.getContent())){
+            commentToBeUpdated.setContent(commentRequestDto.getContent());
+        }
+        return commentRepository.save(commentToBeUpdated);
+    }
+
+    @Override
     public Comment findCommentById(String id) {
         return commentRepository.findByUniqueId(id);
     }
