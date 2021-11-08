@@ -26,27 +26,48 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public AuthorResponseDto updateAuthor(AuthorRequestDto authorRequestDto) {
-        return null;
+    public Author updateAuthor(String id, AuthorRequestDto authorRequestDto) {
+
+        Author authorToBeUpdated = findAuthorById(id);
+        if (!authorToBeUpdated.getFirstName().equals(authorRequestDto.getFirstName())){
+            authorToBeUpdated.setFirstName(authorRequestDto.getFirstName());
+        }
+        if (!authorToBeUpdated.getLastName().equals(authorRequestDto.getLastName())){
+            authorToBeUpdated.setLastName(authorRequestDto.getLastName());
+        }
+        if (!authorToBeUpdated.getPhoneNumber().equals(authorRequestDto.getPhoneNumber())){
+            authorToBeUpdated.setPhoneNumber(authorRequestDto.getPhoneNumber());
+        }
+
+        if (!authorToBeUpdated.getProfession().equals(authorRequestDto.getProfession())){
+            authorToBeUpdated.setProfession(authorRequestDto.getProfession());
+        }
+        if (!authorToBeUpdated.getEmail().equals(authorRequestDto.getEmail())){
+            authorToBeUpdated.setProfession(authorRequestDto.getProfession());
+        }
+        return authorRepository.save(authorToBeUpdated);
     }
 
     @Override
     public List<Author> findById() {
-        return null;
+
+        return authorRepository.findAll();
     }
 
     @Override
     public void deleteAuthorById(String id) {
-
+        Author deletedAuthor = authorRepository.findByAuthorId(id);
+        authorRepository.delete(deletedAuthor);
     }
 
     @Override
     public void deleteAuthor(Author author) {
-
+        authorRepository.delete(author);
     }
 
     @Override
     public Author findAuthorById(String id) {
-        return null;
+
+        return authorRepository.findByAuthorId(id);
     }
 }
