@@ -23,4 +23,19 @@ public class CommentController {
 
         return commentService.findCommentById(id);
     }
+
+    @DeleteMapping("/comment")
+    public Comment deleteComment(Comment comment){
+        return commentService.deleteComment(comment);
+    }
+
+    @DeleteMapping("/comment/{commentId}")
+    public Comment deleteCommentById(@PathVariable  String commentId){
+        return commentService.deleteCommentById(commentId);
+    }
+
+    @PatchMapping("/comment/{commentId}")
+    public Comment updateComment(@RequestBody CommentRequestDto commentRequestDto, @PathVariable String commentId){
+            return commentService.updateComment(commentId, commentRequestDto );
+    }
 }
