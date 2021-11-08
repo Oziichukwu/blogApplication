@@ -7,7 +7,7 @@ import africa.semicolon.blogApplication.data.models.Post;
 public interface PostService {
 
    PostResponseDto createPost(PostRequestDto postRequestDto);
-   Post updatePost(String id, PostRequestDto postRequestDto);
+   Post updatePost(String PostId, PostRequestDto postRequestDto);
    Post findPostById(String id);
    void deletePostById(String id);
 
