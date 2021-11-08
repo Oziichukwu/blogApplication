@@ -50,7 +50,6 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     public List<Author> findById() {
-
         return authorRepository.findAll();
     }
 
