@@ -2,40 +2,45 @@ package africa.semicolon.blogApplication.data.repositories;
 
 import africa.semicolon.blogApplication.data.models.Author;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class AuthorRepositoryImpl implements AuthorRepository{
-    List<Author>authors = new ArrayList<>();
+
+    private final Map <String, Author> database = new HashMap();
     @Override
     public Author save(Author author) {
-        authors.add(author);
-        return findByAuthorId(author.getAuthorId());
+        database.put(author.getAuthorId(), author);
+        return author;
     }
 
     @Override
-    public Author findByAuthorId(String id) {
-        for (Author author : authors){
-            if(author.getAuthorId().equalsIgnoreCase(id)){
-                return author;
-            }
-        }
-        return null;
+    public Optional<Author> findByAuthorId(String authorId) {
+       if (database.containsKey(authorId)) return Optional.of(database.get(authorId));
+        return Optional.empty();
     }
 
     @Override
     public void delete(Author author) {
-        authors.remove(author);
+        delete(author.getAuthorId());
     }
 
     @Override
-    public void delete(String id) {
-        Author author = findByAuthorId(id);
-        authors.remove(author);
+    public void delete(String authorId) {
+        database.remove(authorId);
+    }
+
+    @Override
+    public void deleteAll() {
+        database.clear();
     }
 
     @Override
     public List<Author> findAll() {
+        List<Author>authors = new ArrayList<>();
+        Set<String>keysInDb = database.keySet();
+        for(String key : keysInDb){
+            authors.add(database.get(key));
+        }
         return authors;
     }
 }
