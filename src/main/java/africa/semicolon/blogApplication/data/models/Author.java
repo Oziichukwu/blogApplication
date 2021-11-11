@@ -14,5 +14,5 @@ public class  Author {
     private String userName;
     private String email;
     private String phoneNumber;
-    private List<Post>posts = new ArrayList<>();
+   //private List<Post>posts = new ArrayList<>();
 }
