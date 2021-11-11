@@ -13,8 +13,9 @@ public class Post {
     private String title;
     private String PostId;
     private String localDateTime;
-    private Author author;
-    private List<Comment> comments  = new ArrayList<>();
+    private String authorId;
+    //private Author author;
+    //private List<Comment> comments  = new ArrayList<>();
 
     public void setLocalDateTime(String localDateTime){
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
