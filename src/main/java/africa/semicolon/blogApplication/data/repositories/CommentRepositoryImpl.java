@@ -1,44 +1,47 @@
 package africa.semicolon.blogApplication.data.repositories;
 
 import africa.semicolon.blogApplication.data.models.Comment;
+import africa.semicolon.blogApplication.data.models.Post;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class CommentRepositoryImpl implements CommentRepository{
-    List<Comment> comments = new ArrayList<>();
 
+    private final Map<String , Comment> database = new HashMap<>();
     @Override
     public Comment save(Comment comment) {
-        comments.add(comment);
-        return findByUniqueId(comment.getCommentId());
+        database.put(comment.getCommentId(), comment);
+        return comment;
     }
 
     @Override
-    public Comment findByUniqueId(String id) {
-
-        for ( Comment comment : comments){
-
-            if (comment.getCommentId().equalsIgnoreCase(id)){
-                return comment;
-            }
-        }
-        return null;
+    public Optional<Comment> findByUniqueId(String commentId) {
+        if (database.containsKey(commentId)) return Optional.of(database.get(commentId));
+        return Optional.empty();
     }
 
     @Override
     public void delete(Comment comment) {
-        comments.remove(comment);
+        delete(comment.getCommentId());
     }
 
     @Override
-    public void delete(String id) {
-        Comment comment = findByUniqueId(id);
-        comments.remove(comment);
+    public void delete(String commentId) {
+        database.remove(commentId);
+    }
+
+    @Override
+    public void deleteAll() {
+        database.clear();
     }
 
     @Override
     public List<Comment> findAll() {
+        List<Comment> comments = new ArrayList<>();
+        Set<String>keysInDb = database.keySet();
+        for(String key : keysInDb){
+            comments.add(database.get(key));
+        }
         return comments;
     }
 }
