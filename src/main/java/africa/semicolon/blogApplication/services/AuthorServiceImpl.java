@@ -1,7 +1,7 @@
 package africa.semicolon.blogApplication.services;
 
-import africa.semicolon.blogApplication.data.dtos.request.AuthorRequestDto;
-import africa.semicolon.blogApplication.data.dtos.response.AuthorResponseDto;
+import africa.semicolon.blogApplication.data.dtos.request.CreateAuthorRequest;
+import africa.semicolon.blogApplication.data.dtos.response.CreateAuthorResponse;
 import africa.semicolon.blogApplication.data.models.Author;
 import africa.semicolon.blogApplication.data.repositories.AuthorRepository;
 import africa.semicolon.blogApplication.data.repositories.AuthorRepositoryImpl;
@@ -14,21 +14,19 @@ public class AuthorServiceImpl implements AuthorService {
     private final AuthorRepository authorRepository = new AuthorRepositoryImpl();
 
     @Override
-    public AuthorResponseDto createAuthor(AuthorRequestDto authorRequestDto) {
+    public CreateAuthorResponse createAuthor(CreateAuthorRequest authorRequestDto) {
 
         Author author = AuthorModelMapper.map(authorRequestDto);
 
         Author savedAuthor = authorRepository.save(author);
 
-        AuthorResponseDto responseDto = AuthorModelMapper.map(savedAuthor);
-
-        return responseDto;
+        return AuthorModelMapper.map(savedAuthor);
     }
 
     @Override
-    public Author updateAuthor(String id, AuthorRequestDto authorRequestDto) {
+    public Author updateAuthor(String authorId, CreateAuthorRequest authorRequestDto) {
 
-        Author authorToBeUpdated = findAuthorById(id);
+        Author authorToBeUpdated = findAuthorById(authorId);
         if (!authorToBeUpdated.getFirstName().equals(authorRequestDto.getFirstName())){
             authorToBeUpdated.setFirstName(authorRequestDto.getFirstName());
         }
@@ -49,24 +47,22 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public List<Author> findById() {
+    public List<Author> findAllAuthors() {
         return authorRepository.findAll();
     }
 
     @Override
     public void deleteAuthorById(String id) {
-        Author deletedAuthor = authorRepository.findByAuthorId(id);
-        authorRepository.delete(deletedAuthor);
+        //Author deletedAuthor = authorRepository.findByAuthorId(id);
+       // authorRepository.delete(deletedAuthor);
+
     }
 
-    @Override
-    public void deleteAuthor(Author author) {
-        authorRepository.delete(author);
-    }
 
     @Override
     public Author findAuthorById(String id) {
 
-        return authorRepository.findByAuthorId(id);
+        //return authorRepository.findByAuthorId(id);
+        return null;
     }
 }
