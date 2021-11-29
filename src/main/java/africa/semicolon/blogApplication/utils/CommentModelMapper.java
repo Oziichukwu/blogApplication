@@ -12,7 +12,7 @@ public class CommentModelMapper {
         comment.setCommentId(commentRequestDto.getCommentId());
         comment.setCommentorName(commentRequestDto.getCommentorName());
         comment.setContent(commentRequestDto.getContent());
-        comment.setDateCommentWasCreated(commentRequestDto.getDateCommentWasMade());
+        //comment.setDateCommentWasCreated(commentRequestDto.getDateCommentWasMade());
 
         return comment;
     }
@@ -24,7 +24,7 @@ public class CommentModelMapper {
         commentResponseDto.setCommentId(savedComment.getCommentId());
         commentResponseDto.setCommentorName(savedComment.getCommentorName());
         commentResponseDto.setContent(savedComment.getContent());
-        commentResponseDto.setDateCommentWasMade(savedComment.getDateCommentWasCreated());
+        //commentResponseDto.setDateCommentWasMade(savedComment.getDateCommentWasCreated());
 
         return commentResponseDto;
     }
