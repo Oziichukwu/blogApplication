@@ -3,7 +3,7 @@ package africa.semicolon.blogApplication.data.dtos.request;
 import lombok.Data;
 
 @Data
-public class AuthorRequestDto {
+public class CreateAuthorRequest {
 
     private String firstName;
     private String lastName;
@@ -11,5 +11,4 @@ public class AuthorRequestDto {
     private String email;
     private String phoneNumber;
     private String profession;
-    private String authorId;
 }
