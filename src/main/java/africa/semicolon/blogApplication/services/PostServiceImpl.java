@@ -10,7 +10,6 @@ import africa.semicolon.blogApplication.utils.PostModelMapper;
 public class PostServiceImpl implements  PostService{
 
     private final PostRepository postRepository = new PostRepositoryImpl();
-    private  static AuthorService authorService = new AuthorServiceImpl();
     @Override
     public PostResponseDto createPost(PostRequestDto postRequestDto) {
         Post post = PostModelMapper.map(postRequestDto);
@@ -18,6 +17,7 @@ public class PostServiceImpl implements  PostService{
         Post savedPost = postRepository.save(post);
 
         PostResponseDto responseDto = PostModelMapper.map(savedPost);
+
         return responseDto;
     }
 
@@ -37,13 +37,12 @@ public class PostServiceImpl implements  PostService{
 
     @Override
     public Post findPostById(String id){
-        return postRepository.findByPostId(id);
+        return null;
     }
 
     @Override
     public void deletePostById(String id) {
-        Post findAPostId = postRepository.findByPostId(id);
-        postRepository.delete(findAPostId);
+        postRepository.delete(id);
     }
 
 }
