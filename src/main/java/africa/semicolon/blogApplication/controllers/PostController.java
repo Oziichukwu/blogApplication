@@ -23,8 +23,8 @@ public class PostController {
     }
 
     @DeleteMapping("/post/{postId}")
-    public Post deletePostById(@PathVariable String postId){
-        return postService.findPostById(postId);
+    public void deletePostById(@PathVariable String postId){
+         postService.deletePostById(postId);
     }
 
     @PatchMapping("/post/{postId}")
