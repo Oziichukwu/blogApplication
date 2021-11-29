@@ -37,7 +37,8 @@ public class CommentServiceImpl implements CommentService{
 
     @Override
     public Comment findCommentById(String id) {
-        return commentRepository.findByUniqueId(id);
+        //return commentRepository.findByUniqueId(id);
+        return null;
     }
 
     @Override
@@ -48,8 +49,9 @@ public class CommentServiceImpl implements CommentService{
 
     @Override
     public Comment deleteCommentById(String id) {
-        Comment deletedComment = commentRepository.findByUniqueId(id);
-        commentRepository.delete(deletedComment);
-        return deletedComment;
+       // Comment deletedComment = commentRepository.findByUniqueId(id);
+       // commentRepository.delete(deletedComment);
+        //return deletedComment;
+        return null;
     }
 }
